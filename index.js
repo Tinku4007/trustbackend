@@ -5,7 +5,11 @@ const router = require("./router/router")
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "*", // Allow any origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+}));
 mongoDb()
 
 app.get("/", (req, res) => {
