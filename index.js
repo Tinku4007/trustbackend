@@ -8,7 +8,7 @@ app.use(express.json());
 
 // CORS configuration to allow all origins
 app.use(cors({
-    origin: "*", // Allow all origins (make sure this is what you want)
+    origin: "http://localhost:5173", // Allow all origins (make sure this is what you want)
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods including OPTIONS
     credentials: true, // Allow credentials like cookies or authorization headers (if needed)
 }));
