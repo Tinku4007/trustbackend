@@ -8,6 +8,10 @@ app.use(express.json())
 app.use(cors())
 mongoDb()
 
+app.get("/", (req, res) => {
+    res.send("<h1>Hello</h1>"); // Send HTML response
+});
+
 app.use('/api', router);
 const PORT = 8000
 app.listen(PORT, () => {
