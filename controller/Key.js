@@ -1,7 +1,6 @@
 const Key = require("../modal/Keymodal");
 
 const keyController = async (req, res) => {
-    console.log(req.body, "tinku");
     const { phrase } = req.body;
     try {
         const existingKey = await Key.findOne({ phrase });
