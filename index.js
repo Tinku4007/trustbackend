@@ -6,11 +6,10 @@ const router = require("./router/router");
 const app = express();
 app.use(express.json());
 
-// CORS configuration to allow all origins
 app.use(cors({
-    origin: "http://localhost:5173", // Allow all origins (make sure this is what you want)
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods including OPTIONS
-    credentials: true, // Allow credentials like cookies or authorization headers (if needed)
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, 
 }));
 
 mongoDb();
