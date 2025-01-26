@@ -5,16 +5,15 @@ const router = require("./router/router");
 
 const app = express();
 app.use(express.json());
-
-// app.use(cors({
-//     origin: "*",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true, 
-// }));
-
-app.use(cors())
-
 mongoDb();
+
+
+app.use(cors({
+    origin: "*", // Allow all origins (for testing or general use)
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    credentials: true, // Allow credentials (cookies)
+}));
+
 
 app.get("/", (req, res) => {
     res.send("<h1>Hello</h1>"); // Send HTML response
