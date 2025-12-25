@@ -28,7 +28,7 @@ const mongoUrl = 'mongodb+srv://tinkusaini1252:Tinku%4099@cluster0.dbsdk.mongodb
 
 const mongoDb = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
+    await mongoose.connect(mongoUrl, {
       serverSelectionTimeoutMS: 20000,
     });
     console.log("MongoDB connected");
