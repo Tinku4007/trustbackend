@@ -5,7 +5,7 @@ const router = require("./router/router");
 
 const app = express();
 app.use(express.json());
-mongoDb();
+// mongoDb();
 
 
 app.use(cors({
@@ -22,7 +22,23 @@ app.get("/", (req, res) => {
 app.use('/api', router);
 
 
-const PORT = 8000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// const PORT = 8000;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+
+const startServer = async () => {
+  try {
+    await mongoDb();
+
+    const PORT = process.env.PORT || 8000;
+    app.listen(PORT, () => {
+      console.log(`✅ Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.log("❌ Server not started (DB error)");
+  }
+};
+
+startServer()
